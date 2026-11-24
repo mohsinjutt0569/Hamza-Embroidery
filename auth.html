@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Account Login – Hamza Fashion Embroidery</title>
+  <title>Account Sign In – Hamza Fashion Embroidery</title>
   <link rel="stylesheet" href="./styles.css" />
   <link rel="stylesheet" href="./auth.css" />
   <script src="https://unpkg.com/lucide@latest"></script>
@@ -13,33 +13,27 @@
     <div class="brand">Hamza Fashion Embroidery</div>
     <nav class="categories">
       <a href="./index.html">← Back to Storefront</a>
-      <a href="./dashboard.html" style="color:var(--color-accent); font-weight:700;">Admin Dashboard</a>
     </nav>
   </header>
 
   <main class="auth-container">
     <div id="authAlert" class="auth-alert" style="display:none;"></div>
 
-    <!-- LOGIN CARD -->
+    <!-- SIGN IN CARD -->
     <section class="auth-card" id="loginCard">
       <h2>Sign In</h2>
-      <p style="color:#666; font-size:0.88rem; margin-bottom:1rem;">
+      <p style="color:#666; font-size:0.88rem; margin-bottom:1.5rem;">
         Log in to your customer account or access the Admin Panel.
       </p>
-
-      <div class="credentials-badge">
-        <strong>Admin Login Hint:</strong><br />
-        Username: <code>admin</code> | Password: <code>admin123</code>
-      </div>
 
       <form id="loginForm">
         <div>
           <label for="loginEmail">Email / Username</label>
-          <input type="text" id="loginEmail" placeholder="e.g. admin or customer@email.com" required />
+          <input type="text" id="loginEmail" placeholder="e.g. admin or customer@email.com" required autocomplete="username" />
         </div>
         <div>
           <label for="loginPassword">Password</label>
-          <input type="password" id="loginPassword" placeholder="••••••••" required />
+          <input type="password" id="loginPassword" placeholder="••••••••" required autocomplete="current-password" />
         </div>
         <button type="submit" class="btn-primary">Sign In</button>
         <p>Don't have an account? <a href="#" id="showRegister">Register here</a></p>
@@ -49,22 +43,22 @@
     <!-- REGISTER CARD -->
     <section class="auth-card" id="registerCard" style="display:none;">
       <h2>Create Customer Account</h2>
-      <p style="color:#666; font-size:0.88rem; margin-bottom:1rem;">
+      <p style="color:#666; font-size:0.88rem; margin-bottom:1.5rem;">
         Register to save your wishlist and track embroidery orders.
       </p>
 
       <form id="registerForm">
         <div>
           <label for="registerName">Full Name</label>
-          <input type="text" id="registerName" placeholder="e.g. Ayesha Khan" required />
+          <input type="text" id="registerName" placeholder="e.g. Fatima Ali" required />
         </div>
         <div>
           <label for="registerEmail">Email / Username</label>
-          <input type="text" id="registerEmail" placeholder="e.g. ayesha@example.com" required />
+          <input type="text" id="registerEmail" placeholder="e.g. fatima@example.com" required autocomplete="username" />
         </div>
         <div>
-          <label for="registerPassword">Password (minimum 6 chars)</label>
-          <input type="password" id="registerPassword" placeholder="••••••••" required minlength="6" />
+          <label for="registerPassword">Password (minimum 6 characters)</label>
+          <input type="password" id="registerPassword" placeholder="••••••••" required minlength="6" autocomplete="new-password" />
         </div>
         <button type="submit" class="btn-primary">Create Account</button>
         <p>Already have an account? <a href="#" id="showLogin">Sign In here</a></p>
@@ -73,6 +67,10 @@
   </main>
 
   <script src="./js/auth.js" type="module"></script>
-  <script>lucide.createIcons();</script>
+  <script>
+    if (window.lucide && typeof window.lucide.createIcons === 'function') {
+      try { window.lucide.createIcons(); } catch(e){}
+    }
+  </script>
 </body>
 </html>

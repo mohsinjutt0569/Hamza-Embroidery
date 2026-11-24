@@ -29,11 +29,11 @@ An e-commerce storefront, admin content management portal, and direct WhatsApp b
 
 ---
 
-## 🔑 Default Admin Credentials
+## 🔑 Admin Credentials
 
-| Role | Username / Email | Password |
+| Role | Username | Password |
 |---|---|---|
-| **Store Administrator** | `admin` | `admin123` |
+| **Store Administrator** | `admin` | `Hamza@123` |
 
 ---
 
@@ -90,7 +90,7 @@ hamza-fashion-embroidery/
 
 ---
 
-## 🌐 How to Upload to GitHub
+## 🌐 How to Upload to GitHub & Host Live
 
 1. Go to [GitHub.com](https://github.com) and click **"New repository"**.
 2. Name it (e.g. `hamza-fashion-embroidery`) and click **"Create repository"**.

@@ -32,7 +32,7 @@ Write-Host "==========================================================" -Foregro
 Write-Host "Server running at: $prefix" -ForegroundColor Yellow
 Write-Host "Storefront URL:    ${prefix}index.html" -ForegroundColor White
 Write-Host "Admin Portal:      ${prefix}dashboard.html" -ForegroundColor White
-Write-Host "Admin Login:       admin / admin123" -ForegroundColor Gray
+Write-Host "Admin Login:       admin / Hamza@123" -ForegroundColor Gray
 Write-Host "==========================================================" -ForegroundColor Cyan
 Write-Host "Press Ctrl + C in this window to stop the server.`n" -ForegroundColor DarkGray
 

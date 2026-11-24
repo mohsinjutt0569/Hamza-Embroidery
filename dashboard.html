@@ -11,6 +11,39 @@
 </head>
 <body>
 
+  <!-- ADMIN AUTHENTICATION CARD (SHOWN WHEN NOT SIGNED IN) -->
+  <section class="admin-login-card" id="adminLoginSection">
+    <div style="font-size: 2.5rem; color: var(--color-accent); margin-bottom: 0.5rem;">
+      <i data-lucide="shield-check"></i>
+    </div>
+    <h2>Admin Portal Login</h2>
+    <p>Sign in to manage website products, embroidery listings, and view WhatsApp bookings.</p>
+
+    <div id="inlineAdminAlert" class="auth-alert error" style="display:none; margin-bottom: 1rem;"></div>
+
+    <form id="inlineAdminLoginForm">
+      <div style="text-align:left; margin-bottom: 0.8rem;">
+        <label for="inlineUsername" style="display:block; font-weight:600; font-size:0.85rem; margin-bottom:0.25rem;">Admin Username</label>
+        <input type="text" id="inlineUsername" placeholder="e.g. admin" required autocomplete="username" style="width:100%; padding:0.6rem; border:1px solid #ccc; border-radius:4px;" />
+      </div>
+
+      <div style="text-align:left; margin-bottom: 1.25rem;">
+        <label for="inlinePassword" style="display:block; font-weight:600; font-size:0.85rem; margin-bottom:0.25rem;">Password</label>
+        <input type="password" id="inlinePassword" placeholder="••••••••" required autocomplete="current-password" style="width:100%; padding:0.6rem; border:1px solid #ccc; border-radius:4px;" />
+      </div>
+
+      <button type="submit" class="btn-primary" style="width:100%; padding:0.75rem; background:var(--color-accent); color:#fff; border:none; border-radius:6px; font-weight:700; cursor:pointer;">
+        Sign In as Admin
+      </button>
+
+      <div style="margin-top: 1.2rem;">
+        <a href="./index.html" style="font-size: 0.9rem; color: #666; text-decoration: underline;">
+          ← Back to Website
+        </a>
+      </div>
+    </form>
+  </section>
+
   <!-- ADMIN LOGGED IN INTERFACE -->
   <div id="adminApp" style="display:none;">
     <header class="admin-header">
@@ -213,47 +246,12 @@
     </div>
   </div>
 
-  <!-- ADMIN AUTHENTICATION CARD (IF NOT SIGNED IN) -->
-  <section class="admin-login-card" id="adminLoginSection" style="display:none;">
-    <div style="font-size: 2.5rem; color: var(--color-accent); margin-bottom: 0.5rem;">
-      <i data-lucide="shield-check"></i>
-    </div>
-    <h2>Admin Portal Login</h2>
-    <p>Sign in to manage website products, embroidery listings, and view WhatsApp bookings.</p>
-
-    <div class="admin-credentials-hint">
-      <strong>Default Admin Credentials:</strong><br />
-      Username: <code>admin</code><br />
-      Password: <code>admin123</code>
-    </div>
-
-    <div id="inlineAdminAlert" class="auth-alert error" style="display:none; margin-bottom: 1rem;"></div>
-
-    <form id="inlineAdminLoginForm">
-      <div style="text-align:left; margin-bottom: 0.8rem;">
-        <label for="inlineUsername" style="display:block; font-weight:600; font-size:0.85rem; margin-bottom:0.25rem;">Admin Username</label>
-        <input type="text" id="inlineUsername" value="admin" required style="width:100%; padding:0.6rem; border:1px solid #ccc; border-radius:4px;" />
-      </div>
-
-      <div style="text-align:left; margin-bottom: 1.25rem;">
-        <label for="inlinePassword" style="display:block; font-weight:600; font-size:0.85rem; margin-bottom:0.25rem;">Password</label>
-        <input type="password" id="inlinePassword" value="admin123" required style="width:100%; padding:0.6rem; border:1px solid #ccc; border-radius:4px;" />
-      </div>
-
-      <button type="submit" class="btn-primary" style="width:100%; padding:0.75rem; background:var(--color-accent); color:#fff; border:none; border-radius:6px; font-weight:700; cursor:pointer;">
-        Sign In as Admin
-      </button>
-
-      <div style="margin-top: 1.2rem;">
-        <a href="./index.html" style="font-size: 0.9rem; color: #666; text-decoration: underline;">
-          ← Back to Website
-        </a>
-      </div>
-    </form>
-  </section>
-
   <!-- Load Modules -->
   <script src="./js/dashboard.js" type="module"></script>
-  <script>lucide.createIcons();</script>
+  <script>
+    if (window.lucide && typeof window.lucide.createIcons === 'function') {
+      try { window.lucide.createIcons(); } catch(e){}
+    }
+  </script>
 </body>
 </html>
