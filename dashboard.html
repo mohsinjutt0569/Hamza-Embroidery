@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard – Hamza Fashion Embroidery</title>
+  <link rel="stylesheet" href="./styles.css" />
+  <link rel="stylesheet" href="./admin.css" />
+  <link rel="stylesheet" href="./auth.css" />
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <!-- ADMIN LOGGED IN INTERFACE -->
+  <div id="adminApp" style="display:none;">
+    <header class="admin-header">
+      <div class="admin-brand">
+        Hamza Fashion Embroidery
+        <span class="badge-admin">Admin Dashboard</span>
+      </div>
+      <nav class="admin-nav">
+        <a href="./index.html" target="_blank" title="View live website">
+          <i data-lucide="external-link"></i> View Website
+        </a>
+        <button id="logoutBtn" class="logout-btn" title="Sign out of Admin">
+          <i data-lucide="log-out"></i> Logout
+        </button>
+      </nav>
+    </header>
+
+    <main class="admin-container">
+      <!-- High-Level Stats -->
+      <section class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon"><i data-lucide="package"></i></div>
+          <div class="stat-info">
+            <h4>Live Products</h4>
+            <div class="stat-value" id="statTotalProducts">0</div>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon"><i data-lucide="layers"></i></div>
+          <div class="stat-info">
+            <h4>Active Categories</h4>
+            <div class="stat-value">4</div>
+          </div>
+        </div>
+
+        <div class="stat-card whatsapp">
+          <div class="stat-icon"><i data-lucide="message-circle"></i></div>
+          <div class="stat-info">
+            <h4>WhatsApp Bookings</h4>
+            <div class="stat-value" id="statTotalOrders">0</div>
+          </div>
+        </div>
+
+        <div class="stat-card whatsapp">
+          <div class="stat-icon"><i data-lucide="phone-call"></i></div>
+          <div class="stat-info">
+            <h4>Booking Number</h4>
+            <div class="stat-value" style="font-size: 1.25rem;">03033331383</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Dashboard Navigation Tabs -->
+      <div class="dashboard-tabs">
+        <button class="tab-btn active" id="tabProducts">
+          <i data-lucide="tag"></i> Products on Website
+          <span class="tab-badge" id="badgeProductCount">0</span>
+        </button>
+        <button class="tab-btn" id="tabOrders">
+          <i data-lucide="shopping-bag"></i> WhatsApp Customer Bookings
+          <span class="tab-badge" id="badgeOrderCount">0</span>
+        </button>
+      </div>
+
+      <!-- VIEW 1: PRODUCTS LISTING & MANAGEMENT -->
+      <section id="viewProducts">
+        <div class="section-toolbar">
+          <div>
+            <h3>Website Product Catalog</h3>
+            <p style="color:#666; font-size: 0.9rem;">
+              Products listed here appear immediately on the storefront with real-time category filtering and search.
+            </p>
+          </div>
+          <div style="display:flex; gap: 0.75rem;">
+            <button id="btnResetDefaults" class="btn-secondary-action" title="Restore sample catalog">
+              <i data-lucide="rotate-ccw"></i> Reset Samples
+            </button>
+            <button id="btnOpenAddProduct" class="btn-primary-action">
+              <i data-lucide="plus-circle"></i> + Add New Product
+            </button>
+          </div>
+        </div>
+
+        <div class="table-card">
+          <table class="admin-table" id="productsTable">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Image</th>
+                <th>Title & Info</th>
+                <th>Category</th>
+                <th>Price (PKR)</th>
+                <th>Status / Rating</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- VIEW 2: WHATSAPP CUSTOMER BOOKINGS -->
+      <section id="viewOrders" style="display:none;">
+        <div class="section-toolbar">
+          <div>
+            <h3>Customer WhatsApp Bookings</h3>
+            <p style="color:#666; font-size: 0.9rem;">
+              Orders and custom embroidery bookings submitted by customers on WhatsApp (03033331383).
+            </p>
+          </div>
+        </div>
+
+        <div class="table-card">
+          <table class="admin-table" id="ordersTable">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Customer</th>
+                <th>Phone</th>
+                <th>Product & Qty</th>
+                <th>Delivery Address</th>
+                <th>Date</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <!-- ADD / EDIT PRODUCT MODAL -->
+    <div class="modal-overlay" id="productModal">
+      <div class="modal-box">
+        <div class="modal-header">
+          <h3 id="modalTitle">Add New Product to Website</h3>
+          <button class="modal-close" id="btnCloseModal">&times;</button>
+        </div>
+        <form id="productForm">
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="prodTitle">Product Title *</label>
+              <input type="text" id="prodTitle" placeholder="e.g. Luxury Hand-Embroidered Kurta" required />
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="prodCategory">Category *</label>
+                <select id="prodCategory" required>
+                  <option value="new">New Arrivals</option>
+                  <option value="unstitched">Unstitched</option>
+                  <option value="kurtas">Kurtas</option>
+                  <option value="luxury">Luxury Embroidery</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="prodPrice">Price (PKR) *</label>
+                <input type="text" id="prodPrice" placeholder="e.g. Rs. 4,999" required />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="prodImg">Image URL / Path</label>
+              <input type="text" id="prodImg" value="./assets/product_placeholder.jpg" placeholder="Enter image link or ./assets/..." />
+              <small style="color:#777; font-size: 0.8rem;">Leave as default or enter an image link.</small>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="prodRating">Rating (Stars)</label>
+                <select id="prodRating">
+                  <option value="5">5 Stars ★★★★★</option>
+                  <option value="4">4 Stars ★★★★☆</option>
+                  <option value="3">3 Stars ★★★☆☆</option>
+                </select>
+              </div>
+
+              <div class="form-group" style="display:flex; align-items:flex-end;">
+                <label class="checkbox-group" style="margin-bottom: 0.6rem;">
+                  <input type="checkbox" id="prodOnSale" />
+                  <span>Mark as "SALE" Badge</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="prodDesc">Product Description & Fabric Details</label>
+              <textarea id="prodDesc" rows="3" placeholder="Fabric, embroidery thread type, cut and design details..."></textarea>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn-secondary-action" id="btnCancelModal">Cancel</button>
+            <button type="submit" class="btn-primary-action">Save & Display on Website</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ADMIN AUTHENTICATION CARD (IF NOT SIGNED IN) -->
+  <section class="admin-login-card" id="adminLoginSection" style="display:none;">
+    <div style="font-size: 2.5rem; color: var(--color-accent); margin-bottom: 0.5rem;">
+      <i data-lucide="shield-check"></i>
+    </div>
+    <h2>Admin Portal Login</h2>
+    <p>Sign in to manage website products, embroidery listings, and view WhatsApp bookings.</p>
+
+    <div class="admin-credentials-hint">
+      <strong>Default Admin Credentials:</strong><br />
+      Username: <code>admin</code><br />
+      Password: <code>admin123</code>
+    </div>
+
+    <div id="inlineAdminAlert" class="auth-alert error" style="display:none; margin-bottom: 1rem;"></div>
+
+    <form id="inlineAdminLoginForm">
+      <div style="text-align:left; margin-bottom: 0.8rem;">
+        <label for="inlineUsername" style="display:block; font-weight:600; font-size:0.85rem; margin-bottom:0.25rem;">Admin Username</label>
+        <input type="text" id="inlineUsername" value="admin" required style="width:100%; padding:0.6rem; border:1px solid #ccc; border-radius:4px;" />
+      </div>
+
+      <div style="text-align:left; margin-bottom: 1.25rem;">
+        <label for="inlinePassword" style="display:block; font-weight:600; font-size:0.85rem; margin-bottom:0.25rem;">Password</label>
+        <input type="password" id="inlinePassword" value="admin123" required style="width:100%; padding:0.6rem; border:1px solid #ccc; border-radius:4px;" />
+      </div>
+
+      <button type="submit" class="btn-primary" style="width:100%; padding:0.75rem; background:var(--color-accent); color:#fff; border:none; border-radius:6px; font-weight:700; cursor:pointer;">
+        Sign In as Admin
+      </button>
+
+      <div style="margin-top: 1.2rem;">
+        <a href="./index.html" style="font-size: 0.9rem; color: #666; text-decoration: underline;">
+          ← Back to Website
+        </a>
+      </div>
+    </form>
+  </section>
+
+  <!-- Load Modules -->
+  <script src="./js/dashboard.js" type="module"></script>
+  <script>lucide.createIcons();</script>
+</body>
+</html>

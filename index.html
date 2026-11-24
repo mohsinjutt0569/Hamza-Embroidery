@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hamza Fashion Embroidery – Premium Pakistani Couture & Handwork</title>
+  <link rel="stylesheet" href="./styles.css" />
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="top-bar">
+    <div style="display:flex; align-items:center; gap:0.5rem;">
+      <span class="top-bar-badge">OFFICIAL STORE</span>
+      <span>Authentic Hand & Machine Embroidery • Nationwide Delivery Across Pakistan</span>
+    </div>
+    <div style="display:flex; align-items:center; gap:1.2rem;">
+      <a href="https://wa.me/923033331383?text=Hello%20Hamza%20Fashion%20Embroidery!%20I%20want%20to%20place%20an%20order." target="_blank" class="top-bar-link">
+        <i data-lucide="message-circle" style="width:14px; height:14px; color:var(--color-whatsapp);"></i>
+        WhatsApp Booking: <strong>03033331383</strong>
+      </a>
+      <a href="./dashboard.html" class="top-bar-link" style="color:#aaa;">
+        <i data-lucide="shield" style="width:13px; height:13px;"></i> Admin Portal
+      </a>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="brand">
+      Hamza Fashion Embroidery
+      <span class="brand-tag">HAUTE COUTURE</span>
+    </div>
+
+    <!-- Category Filter Navigation -->
+    <nav class="categories" id="categoryNav">
+      <a href="#" class="active" data-cat="all">All Collection</a>
+      <a href="#" data-cat="new">New Arrivals</a>
+      <a href="#" data-cat="unstitched">Unstitched</a>
+      <a href="#" data-cat="kurtas">Kurtas</a>
+      <a href="#" data-cat="luxury">Luxury Embroidery</a>
+    </nav>
+
+    <!-- Search Input -->
+    <div class="search">
+      <span class="search-icon"><i data-lucide="search" style="width:16px; height:16px;"></i></span>
+      <input type="text" id="searchInput" placeholder="Search kurtas, suits, embroidery..." />
+    </div>
+
+    <!-- Utility & User Actions -->
+    <div class="utils">
+      <a href="./dashboard.html" id="adminDashboardLink" class="admin-header-pill" style="display:none;" title="Open Admin Panel">
+        <i data-lucide="layout-dashboard" style="width:14px; height:14px;"></i> Admin Dashboard
+      </a>
+
+      <button id="cartBtn" title="Shopping Cart">
+        <i data-lucide="shopping-bag" style="width:18px; height:18px;"></i>
+        <span id="cartCountBadge" style="display:none; background:var(--color-accent); color:#fff; font-size:0.7rem; border-radius:50%; width:16px; height:16px; display:inline-flex; align-items:center; justify-content:center;">0</span>
+      </button>
+
+      <a href="./auth.html" id="loginBtn" class="util-link" title="Sign In">Login</a>
+      <a href="./auth.html" id="registerBtn" class="util-link" style="background:var(--color-accent); color:#fff; padding:0.35rem 0.75rem; border-radius:20px;" title="Register">Register</a>
+
+      <div id="avatarBtn" style="display:none; align-items:center; gap:0.5rem;">
+        <span style="width:30px; height:30px; border-radius:50%; background:#e21836; color:#fff; display:inline-flex; align-items:center; justify-content:center; font-weight:700; font-size:0.85rem;">
+          <i data-lucide="user" style="width:16px; height:16px;"></i>
+        </span>
+        <span id="avatarName" style="font-weight:600; font-size:0.85rem;"></span>
+        <button id="headerLogoutBtn" title="Logout" style="color:#888; font-size:0.75rem; padding:0.2rem 0.4rem;">(Logout)</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Banner -->
+  <section class="hero-banner">
+    <div class="hero-content">
+      <span class="hero-tag">Master Craftsmen & Luxury Threads</span>
+      <h1>Heritage Embroidery Crafted for Elegance</h1>
+      <p>Discover hand-embroidered Kurtas, 3-Piece unstitched suits, organza dupattas, and bespoke bridal embroidery. Direct booking & instant inquiries on WhatsApp.</p>
+      <div class="hero-actions">
+        <button id="btnOpenCustomBooking" class="btn-hero-wa">
+          <i data-lucide="message-circle"></i> Book Custom Embroidery on WhatsApp
+        </button>
+        <a href="#productGridSection" class="btn-hero-explore">
+          Explore Products
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Catalog Section -->
+  <section id="productGridSection">
+    <div class="section-header">
+      <div>
+        <h2 id="currentCategoryTitle">Featured Collection</h2>
+        <p id="productCountSubtitle">Showing luxury handcrafted outfits</p>
+      </div>
+      <div style="font-size:0.85rem; color:#666;">
+        Order instantly via WhatsApp: <strong>03033331383</strong>
+      </div>
+    </div>
+
+    <!-- Live Grid populated via JS from hamza_products -->
+    <div id="productGrid"></div>
+  </section>
+
+  <!-- Suggestions / Top Recommendations -->
+  <section id="suggestions">
+    <div class="section-title">
+      <h2>Handpicked Recommendations</h2>
+      <p>Bestselling designs and customer favourites this season</p>
+    </div>
+    <div id="suggestionGrid"></div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-col">
+        <h4>Hamza Fashion Embroidery</h4>
+        <p>Premium Pakistani fashion brand specializing in traditional handwork, zardozi, tilla, mirror-work, and contemporary chic cuts.</p>
+        <p><strong>WhatsApp Booking:</strong> 03033331383</p>
+        <p><strong>Email:</strong> orders@hamzafashion.com</p>
+      </div>
+      <div class="footer-col">
+        <h4>Collection Categories</h4>
+        <ul>
+          <li><a href="#" class="cat-link" data-cat="new">New Arrivals 2026</a></li>
+          <li><a href="#" class="cat-link" data-cat="unstitched">Unstitched 3-Piece Suits</a></li>
+          <li><a href="#" class="cat-link" data-cat="kurtas">Embroidered Kurtas & Shirts</a></li>
+          <li><a href="#" class="cat-link" data-cat="luxury">Luxury Velvet & Silk Embroidery</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Customer Care</h4>
+        <ul>
+          <li><a href="https://wa.me/923033331383?text=Hi,%20I%20need%20custom%20embroidery%20guidance" target="_blank">Custom Embroidery Consultation</a></li>
+          <li><a href="https://wa.me/923033331383?text=Hi,%20I%20want%20to%20track%20my%20order" target="_blank">Order Tracking via WhatsApp</a></li>
+          <li><a href="./auth.html">Customer Login</a></li>
+          <li><a href="./dashboard.html">Store Admin Portal</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2026 Hamza Fashion Embroidery. All rights reserved. | Bookings handled directly on WhatsApp at 03033331383.
+    </div>
+  </footer>
+
+  <!-- Floating Widgets (WhatsApp Direct Chat & Back to Top) -->
+  <div class="floating-widgets">
+    <a href="https://wa.me/923033331383?text=Hello%20Hamza%20Fashion%20Embroidery!%20I%20want%20to%20inquire%20about%20your%20products." target="_blank" class="wa-floating-btn" id="waFloatingBtn" title="Chat on WhatsApp">
+      <div class="wa-pulse"></div>
+      <i data-lucide="message-circle" style="width:28px; height:28px;"></i>
+      <span class="tooltip">Order on WhatsApp: 03033331383</span>
+    </a>
+    <button id="backToTop" title="Back to top">
+      <i data-lucide="chevron-up" style="width:20px; height:20px;"></i>
+    </button>
+  </div>
+
+  <!-- CUSTOMER WHATSAPP ORDER / BOOKING MODAL -->
+  <div class="booking-modal-overlay" id="bookingModal">
+    <div class="booking-modal-box">
+      <div class="booking-modal-header">
+        <h3>
+          <i data-lucide="message-circle"></i>
+          <span id="bookingModalHeading">Order on WhatsApp</span>
+        </h3>
+        <button class="booking-modal-close" id="btnCloseBookingModal">&times;</button>
+      </div>
+
+      <div class="booking-modal-body">
+        <!-- Selected Item Preview -->
+        <div class="selected-product-preview" id="bookingProductPreview">
+          <img src="./assets/product_placeholder.jpg" alt="Product" class="preview-thumb" id="bookingThumb" />
+          <div style="flex-grow:1;">
+            <div class="preview-title" id="bookingTitle">Custom Embroidery Booking</div>
+            <div class="preview-price" id="bookingPrice">Price: To be quoted</div>
+          </div>
+        </div>
+
+        <form id="whatsappBookingForm">
+          <input type="hidden" id="formProductId" />
+          <input type="hidden" id="formProductTitle" />
+          <input type="hidden" id="formProductPrice" />
+
+          <div class="form-grid-2">
+            <div class="booking-form-group">
+              <label for="custName">Your Name *</label>
+              <input type="text" id="custName" placeholder="e.g. Fatima Ali" required />
+            </div>
+
+            <div class="booking-form-group">
+              <label for="custPhone">WhatsApp / Mobile No *</label>
+              <input type="tel" id="custPhone" placeholder="e.g. 03001234567" required />
+            </div>
+          </div>
+
+          <div class="form-grid-2">
+            <div class="booking-form-group">
+              <label for="custQuantity">Quantity</label>
+              <input type="number" id="custQuantity" min="1" max="50" value="1" required />
+            </div>
+
+            <div class="booking-form-group">
+              <label for="custSize">Size / Cut</label>
+              <select id="custSize">
+                <option value="Unstitched Fabric">Unstitched Fabric</option>
+                <option value="Small (S)">Stitched - Small (S)</option>
+                <option value="Medium (M)" selected>Stitched - Medium (M)</option>
+                <option value="Large (L)">Stitched - Large (L)</option>
+                <option value="Extra Large (XL)">Stitched - XL</option>
+                <option value="Custom Tailored Embroidery">Custom Tailored Work</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="booking-form-group">
+            <label for="custAddress">Delivery Address & City *</label>
+            <input type="text" id="custAddress" placeholder="e.g. House 14, Street 3, Gulberg, Lahore" required />
+          </div>
+
+          <div class="booking-form-group">
+            <label for="custNotes">Special Requests / Embroidery Notes</label>
+            <textarea id="custNotes" rows="2" placeholder="Any specific color preferences, fabric requests or urgent date requirements..."></textarea>
+          </div>
+
+          <button type="submit" class="btn-submit-booking">
+            <i data-lucide="send" style="width:18px; height:18px;"></i>
+            Send Order to WhatsApp (03033331383)
+          </button>
+
+          <p class="wa-notice">
+            Clicking will save your booking and open WhatsApp directly with our team at <strong>03033331383</strong> with all order details filled in.
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script src="./js/script.js" type="module"></script>
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      if (window.lucide) window.lucide.createIcons();
+    });
+  </script>
+</body>
+</html>

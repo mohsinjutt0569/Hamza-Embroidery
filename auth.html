@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Account Login – Hamza Fashion Embroidery</title>
+  <link rel="stylesheet" href="./styles.css" />
+  <link rel="stylesheet" href="./auth.css" />
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+  <header>
+    <div class="brand">Hamza Fashion Embroidery</div>
+    <nav class="categories">
+      <a href="./index.html">← Back to Storefront</a>
+      <a href="./dashboard.html" style="color:var(--color-accent); font-weight:700;">Admin Dashboard</a>
+    </nav>
+  </header>
+
+  <main class="auth-container">
+    <div id="authAlert" class="auth-alert" style="display:none;"></div>
+
+    <!-- LOGIN CARD -->
+    <section class="auth-card" id="loginCard">
+      <h2>Sign In</h2>
+      <p style="color:#666; font-size:0.88rem; margin-bottom:1rem;">
+        Log in to your customer account or access the Admin Panel.
+      </p>
+
+      <div class="credentials-badge">
+        <strong>Admin Login Hint:</strong><br />
+        Username: <code>admin</code> | Password: <code>admin123</code>
+      </div>
+
+      <form id="loginForm">
+        <div>
+          <label for="loginEmail">Email / Username</label>
+          <input type="text" id="loginEmail" placeholder="e.g. admin or customer@email.com" required />
+        </div>
+        <div>
+          <label for="loginPassword">Password</label>
+          <input type="password" id="loginPassword" placeholder="••••••••" required />
+        </div>
+        <button type="submit" class="btn-primary">Sign In</button>
+        <p>Don't have an account? <a href="#" id="showRegister">Register here</a></p>
+      </form>
+    </section>
+
+    <!-- REGISTER CARD -->
+    <section class="auth-card" id="registerCard" style="display:none;">
+      <h2>Create Customer Account</h2>
+      <p style="color:#666; font-size:0.88rem; margin-bottom:1rem;">
+        Register to save your wishlist and track embroidery orders.
+      </p>
+
+      <form id="registerForm">
+        <div>
+          <label for="registerName">Full Name</label>
+          <input type="text" id="registerName" placeholder="e.g. Ayesha Khan" required />
+        </div>
+        <div>
+          <label for="registerEmail">Email / Username</label>
+          <input type="text" id="registerEmail" placeholder="e.g. ayesha@example.com" required />
+        </div>
+        <div>
+          <label for="registerPassword">Password (minimum 6 chars)</label>
+          <input type="password" id="registerPassword" placeholder="••••••••" required minlength="6" />
+        </div>
+        <button type="submit" class="btn-primary">Create Account</button>
+        <p>Already have an account? <a href="#" id="showLogin">Sign In here</a></p>
+      </form>
+    </section>
+  </main>
+
+  <script src="./js/auth.js" type="module"></script>
+  <script>lucide.createIcons();</script>
+</body>
+</html>

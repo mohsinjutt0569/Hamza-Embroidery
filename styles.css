@@ -1,0 +1,885 @@
+/*
+ * Hamza Fashion Embroidery – Premium UI Styles
+ * Inspired by modern Pakistani couture – red accent, clean minimal look.
+ */
+
+/* ==== Font Imports ==== */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap');
+
+/* ==== CSS Variables (Color Scheme) ==== */
+:root {
+  --color-accent-rgb: 226, 24, 54;               /* #e21836 - Signature Red */
+  --color-accent: rgb(var(--color-accent-rgb));
+  --color-accent-hover: #b81229;
+  --color-whatsapp: #25D366;
+  --color-whatsapp-hover: #1ebd5a;
+  --color-background: #ffffff;
+  --color-foreground: #111111;
+  --color-muted: #e0e0e0;
+  --color-text-muted: #666666;
+  --color-button-bg: var(--color-foreground);
+  --color-button-text: #ffffff;
+  --color-badge-bg: var(--color-accent);
+  --color-badge-text: #ffffff;
+  --color-star: #ffb400;                         /* gold star */
+}
+
+/* ==== Reset & Base ==== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: 'Outfit', sans-serif;
+  background: var(--color-background);
+  color: var(--color-foreground);
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--color-accent);
+}
+
+/* ==== Top Announcement Bar ==== */
+.top-bar {
+  background: #111;
+  color: #eee;
+  font-size: 0.82rem;
+  padding: 0.4rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.top-bar-link {
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.top-bar-link:hover {
+  color: var(--color-whatsapp);
+}
+
+.top-bar-badge {
+  background: var(--color-whatsapp);
+  color: #fff;
+  padding: 0.15rem 0.5rem;
+  border-radius: 10px;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+/* ==== Header ==== */
+header {
+  position: sticky;
+  top: 0;
+  background: #ffffff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  z-index: 1000;
+  padding: 0.75rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.brand {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 900;
+  font-size: 1.45rem;
+  color: var(--color-accent);
+  letter-spacing: -0.5px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.brand-tag {
+  font-size: 0.65rem;
+  font-weight: 700;
+  background: #111;
+  color: #fff;
+  padding: 0.15rem 0.45rem;
+  border-radius: 4px;
+  letter-spacing: 1px;
+}
+
+nav.categories {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+nav.categories a {
+  padding: 0.35rem 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.88rem;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #444;
+}
+
+nav.categories a:hover {
+  color: var(--color-accent);
+  background: rgba(226, 24, 54, 0.05);
+}
+
+nav.categories a.active {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+/* ==== Search & Utils ==== */
+.search {
+  position: relative;
+  min-width: 220px;
+}
+
+.search input {
+  width: 100%;
+  padding: 0.45rem 0.8rem 0.45rem 2.2rem;
+  border: 1px solid var(--color-muted);
+  border-radius: 20px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.88rem;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.search input:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(226, 24, 54, 0.1);
+}
+
+.search-icon {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #888;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+}
+
+.utils {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.utils button, .utils a.util-link {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-foreground);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.6rem;
+  border-radius: 6px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.utils button:hover, .utils a.util-link:hover {
+  color: var(--color-accent);
+  background: #f8f8f8;
+}
+
+.admin-header-pill {
+  background: #111 !important;
+  color: #fff !important;
+  padding: 0.35rem 0.8rem !important;
+  border-radius: 20px !important;
+  font-size: 0.82rem !important;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.admin-header-pill:hover {
+  background: var(--color-accent) !important;
+}
+
+/* ==== Hero Banner ==== */
+.hero-banner {
+  background: linear-gradient(135deg, #181818 0%, #292929 100%);
+  color: #fff;
+  padding: 3rem 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-banner::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-accent), #ff8a00, var(--color-whatsapp));
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero-tag {
+  display: inline-block;
+  background: rgba(226, 24, 54, 0.2);
+  color: #ff6b81;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  margin-bottom: 1rem;
+}
+
+.hero-banner h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 0.8rem;
+  letter-spacing: -0.5px;
+}
+
+.hero-banner p {
+  color: #bbb;
+  font-size: 1.05rem;
+  margin-bottom: 1.8rem;
+}
+
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn-hero-wa {
+  background: var(--color-whatsapp);
+  color: #fff;
+  font-weight: 700;
+  padding: 0.75rem 1.6rem;
+  border-radius: 30px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
+  transition: transform 0.2s, background 0.2s;
+}
+
+.btn-hero-wa:hover {
+  background: var(--color-whatsapp-hover);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.btn-hero-explore {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-weight: 600;
+  padding: 0.75rem 1.6rem;
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.2s;
+}
+
+.btn-hero-explore:hover {
+  background: #fff;
+  color: #111;
+}
+
+/* ==== Section Headings ==== */
+.section-header {
+  max-width: 1200px;
+  margin: 2.5rem auto 1rem;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-bottom: 2px solid #f2f2f2;
+  padding-bottom: 0.75rem;
+}
+
+.section-header h2 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #111;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.section-header p {
+  font-size: 0.88rem;
+  color: #666;
+}
+
+/* ==== Product Grid ==== */
+#productGrid {
+  max-width: 1200px;
+  margin: 1.5rem auto 3rem;
+  padding: 0 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 1.75rem;
+}
+
+.product-card {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+  border: 1px solid #f0f0f0;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.12);
+}
+
+.product-card-img-wrap {
+  width: 100%;
+  height: 280px;
+  overflow: hidden;
+  position: relative;
+  background: #f7f7f7;
+}
+
+.product-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover img {
+  transform: scale(1.04);
+}
+
+.badge {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  background: var(--color-badge-bg);
+  color: var(--color-badge-text);
+  padding: 0.25rem 0.55rem;
+  font-size: 0.72rem;
+  font-weight: 800;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  z-index: 2;
+}
+
+.category-tag {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  background: rgba(0, 0, 0, 0.65);
+  color: #fff;
+  padding: 0.2rem 0.5rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  border-radius: 4px;
+  text-transform: uppercase;
+  backdrop-filter: blur(4px);
+  z-index: 2;
+}
+
+.product-info {
+  padding: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.product-info h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 0.35rem;
+  color: var(--color-foreground);
+  line-height: 1.35;
+}
+
+.product-desc {
+  font-size: 0.82rem;
+  color: #666;
+  line-height: 1.4;
+  margin-bottom: 0.75rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.price-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.8rem;
+  margin-top: auto;
+}
+
+.price {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--color-accent);
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  color: var(--color-star);
+  font-size: 0.88rem;
+}
+
+.card-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.4rem;
+}
+
+.btn-whatsapp-order {
+  flex: 1;
+  background: var(--color-whatsapp);
+  color: #fff;
+  border: none;
+  padding: 0.6rem 0.8rem;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 0.88rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  transition: background 0.2s;
+}
+
+.btn-whatsapp-order:hover {
+  background: var(--color-whatsapp-hover);
+}
+
+.btn-whatsapp-order i {
+  width: 16px;
+  height: 16px;
+}
+
+/* ==== Suggestions Section ==== */
+#suggestions {
+  background: #fbfbfb;
+  padding: 3rem 1rem;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+
+#suggestions .section-title {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+#suggestions .section-title h2 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+#suggestions .section-title p {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+#suggestionGrid {
+  display: grid;
+  max-width: 1200px;
+  margin: 0 auto;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+/* ==== Floating WhatsApp Button & Back to Top ==== */
+.floating-widgets {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  z-index: 1500;
+}
+
+.wa-floating-btn {
+  background: var(--color-whatsapp);
+  color: #fff;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.5);
+  cursor: pointer;
+  border: none;
+  transition: transform 0.2s, background 0.2s;
+  position: relative;
+}
+
+.wa-floating-btn:hover {
+  transform: scale(1.08);
+  background: var(--color-whatsapp-hover);
+  color: #fff;
+}
+
+.wa-floating-btn .tooltip {
+  position: absolute;
+  right: 64px;
+  background: #111;
+  color: #fff;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateX(10px);
+  transition: all 0.2s;
+  font-weight: 600;
+}
+
+.wa-floating-btn:hover .tooltip {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.wa-pulse {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: rgba(37, 211, 102, 0.4);
+  animation: waPulse 2s infinite;
+  z-index: -1;
+}
+
+@keyframes waPulse {
+  0% { transform: scale(1); opacity: 0.8; }
+  100% { transform: scale(1.5); opacity: 0; }
+}
+
+#backToTop {
+  background: #111;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s, background 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-end;
+}
+
+#backToTop:hover {
+  background: var(--color-accent);
+}
+
+#backToTop.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ==== Customer WhatsApp Booking Modal ==== */
+.booking-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.65);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 2500;
+  padding: 1rem;
+}
+
+.booking-modal-overlay.open {
+  display: flex;
+}
+
+.booking-modal-box {
+  background: #fff;
+  border-radius: 12px;
+  max-width: 520px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 12px 36px rgba(0,0,0,0.25);
+  animation: modalPop 0.25s ease-out;
+}
+
+@keyframes modalPop {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.booking-modal-header {
+  background: #111;
+  color: #fff;
+  padding: 1.2rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 3px solid var(--color-whatsapp);
+}
+
+.booking-modal-header h3 {
+  font-size: 1.2rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.booking-modal-close {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+
+.booking-modal-body {
+  padding: 1.5rem;
+}
+
+.selected-product-preview {
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  padding: 0.8rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.preview-thumb {
+  width: 55px;
+  height: 55px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.preview-title {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #111;
+}
+
+.preview-price {
+  font-weight: 800;
+  color: var(--color-accent);
+  font-size: 0.95rem;
+}
+
+.booking-form-group {
+  margin-bottom: 1rem;
+}
+
+.booking-form-group label {
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+  color: #333;
+}
+
+.booking-form-group input,
+.booking-form-group select,
+.booking-form-group textarea {
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.92rem;
+}
+
+.booking-form-group input:focus,
+.booking-form-group select:focus,
+.booking-form-group textarea:focus {
+  outline: none;
+  border-color: var(--color-whatsapp);
+  box-shadow: 0 0 0 3px rgba(37, 211, 102, 0.2);
+}
+
+.form-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.btn-submit-booking {
+  width: 100%;
+  background: var(--color-whatsapp);
+  color: #fff;
+  border: none;
+  padding: 0.85rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: background 0.2s, transform 0.1s;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+}
+
+.btn-submit-booking:hover {
+  background: var(--color-whatsapp-hover);
+}
+
+.btn-submit-booking:active {
+  transform: scale(0.99);
+}
+
+.wa-notice {
+  font-size: 0.78rem;
+  color: #777;
+  text-align: center;
+  margin-top: 0.75rem;
+}
+
+/* ==== Footer ==== */
+footer {
+  background: #111111;
+  color: #eee;
+  padding: 3rem 1.5rem 1.5rem;
+  font-size: 0.9rem;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.footer-col h4 {
+  color: #fff;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.footer-col p {
+  color: #aaa;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  margin-bottom: 0.75rem;
+}
+
+.footer-col ul {
+  list-style: none;
+}
+
+.footer-col ul li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-col ul li a {
+  color: #aaa;
+  font-size: 0.85rem;
+}
+
+.footer-col ul li a:hover {
+  color: var(--color-accent);
+}
+
+.footer-bottom {
+  border-top: 1px solid #222;
+  padding-top: 1.25rem;
+  text-align: center;
+  color: #777;
+  font-size: 0.82rem;
+}
+
+/* ==== Responsive Adjustments ==== */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0.75rem 1rem;
+  }
+  
+  .brand {
+    justify-content: center;
+  }
+  
+  nav.categories {
+    justify-content: center;
+  }
+
+  .search {
+    width: 100%;
+  }
+
+  .utils {
+    justify-content: center;
+  }
+
+  .hero-banner h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero-banner {
+    padding: 2rem 1rem;
+  }
+
+  .form-grid-2 {
+    grid-template-columns: 1fr;
+  }
+}

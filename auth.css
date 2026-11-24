@@ -1,0 +1,112 @@
+/* auth.css – styling for login/register cards and alerts */
+
+.auth-container {
+  max-width: 480px;
+  margin: 3.5rem auto;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.auth-card {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  border: 1px solid #f0f0f0;
+}
+
+.auth-card h2 {
+  margin-bottom: 0.3rem;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--color-foreground);
+}
+
+.auth-card div {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-card label {
+  margin-bottom: 0.35rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.auth-card input {
+  padding: 0.6rem 0.8rem;
+  border: 1px solid var(--color-muted);
+  border-radius: 6px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  transition: border-color 0.2s;
+}
+
+.auth-card input:focus {
+  outline: none;
+  border-color: var(--color-accent);
+}
+
+.btn-primary {
+  width: 100%;
+  margin-top: 0.5rem;
+  padding: 0.75rem;
+  background: var(--color-accent);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-primary:hover {
+  background: #b81229;
+}
+
+.auth-card p {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  text-align: center;
+  color: #555;
+}
+
+.auth-card a {
+  color: var(--color-accent);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.auth-alert {
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+.auth-alert.error {
+  background: #ffebee;
+  color: #c62828;
+  border: 1px solid #ffcdd2;
+}
+
+.auth-alert.success {
+  background: #e8f5e9;
+  color: #2e7d32;
+  border: 1px solid #c8e6c9;
+}
+
+.credentials-badge {
+  background: #fff8e1;
+  border: 1px solid #ffe082;
+  border-radius: 6px;
+  padding: 0.6rem 0.8rem;
+  font-size: 0.85rem;
+  color: #795548;
+  margin-bottom: 1.25rem;
+}
